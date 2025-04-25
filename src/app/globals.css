@@ -14,3 +14,37 @@ body {
   color: var(--foreground);
   font-family: 'Poppins' sans-serif;
 }
+
+.active-nav{
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* components Clients */
+.td-hover:hover{
+  transition: all 0.3s ease-in-out;
+  background: #ff002662;
+}
+
+/* component login */
+.body-login{
+  background: var(--grey);
+}
+.form-control:focus{
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+  transition: all 0.3s ease;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 4;
+  background: radial-gradient(circle closest-side,#FF0025 90%,#ff002600) 0/calc(100%/3) 100% space;
+  clip-path: inset(0 100% 0 0);
+  animation: l1 1s steps(4) infinite;
+}
+@keyframes l1 {to{clip-path: inset(0 -34% 0 0)}}
