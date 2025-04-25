@@ -1,8 +1,13 @@
 import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
 import { auth } from "./Firebase";
+import { useRouter } from "next/navigation";
+
+
 
 export const useLogout = () => {
+
+  const router = useRouter()
  
   const handleLogout = async () => {
     try {
@@ -18,7 +23,7 @@ export const useLogout = () => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           await signOut(auth);
-        window.location.href = "/auth";
+          router.push('/auth')
           sessionStorage.removeItem('user');
         }
       })

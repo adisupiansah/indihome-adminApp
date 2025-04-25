@@ -37,7 +37,7 @@ const Login = () => {
       );
 
       // simpan user yang login ke session storage
-      // sessionStorage.setItem("user", JSON.stringify(signInUser.user));
+      sessionStorage.setItem("user", JSON.stringify(signInUser.user));
 
       // sweetAlert berhasill login
       Swal.fire({
@@ -47,7 +47,7 @@ const Login = () => {
         showConfirmButton: false,
         timer: 1500,
       }).then(() => {
-        window.location.href = '/'
+        router.push('/')
       });
     } catch (error) {
       setMessage(error.message);

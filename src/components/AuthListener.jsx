@@ -2,9 +2,11 @@
 import { useEffect } from "react";
 import { auth } from "@/libs/Firebase";
 import { setPersistence, browserSessionPersistence, onAuthStateChanged } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 const AuthListener = () => {
 
+  const router = useRouter()
 
   useEffect(() => {
     // Set persistence ke 'session'

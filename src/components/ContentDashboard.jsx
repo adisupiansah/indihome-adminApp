@@ -10,6 +10,11 @@ const ContentDashboard = () => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
+        if (user) {
+            setUser(user.email);
+        } else {
+            setUser('')
+        }
         return () => unsubscribe();
     }, []);
 

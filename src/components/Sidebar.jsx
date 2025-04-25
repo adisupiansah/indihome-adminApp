@@ -24,15 +24,24 @@ const Sidebar = () => {
 
   const pathname = usePathname(); // Mendapatkan rute aktif
   const { handleLogout } = useLogout()
+  
+  useEffect(() => {
+
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser); 
+      } else {
+        setUser(null);
+      }
+    });
+  
+    return () => unsubscribe(); 
+  }, []);
 
   if (pathname === "/auth") {
     return null; // Jika rute aktif adalah "/login", tidak menampilkan Sidebar
   }
 
-  useEffect(() => {
-    const namaUser = onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
-    return () => namaUser();
-  }, [])
 
   return (
     <>
