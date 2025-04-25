@@ -326,7 +326,7 @@ const Clients = () => {
                                       sendEmail(item.id, item.email)
                                     }
                                   >
-                                    <MdOutlineMail size={21} />
+                                    <FaWrench size={21} />
                                   </span>
                                   <span
                                     className="bg-green-700 hover:bg-green-800 p-1 text-white rounded-md cursor-pointer"
