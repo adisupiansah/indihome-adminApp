@@ -120,67 +120,69 @@ const Completed = () => {
           <div className="col-md-12 mt-3">
             <div className="card">
               <div className="card-body">
-                <table
-                  className="table table-striped table-bordered"
-                  id="example"
-                >
-                  <thead>
-                    <tr>
-                      <th className="text-center">No</th>
-                      <th className="text-center">Nama</th>
-                      <th className="text-center">alamat</th>
-                      <th className="text-center">No WhatsApp</th>
-                      <th className="text-center">Paket</th>
-                      <th className="text-center">Status</th>
-                      <th className="text-center">Action</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    {data.length > 0 ? (
-                      data.map((item, index) => {
-                        return (
-                          <tr key={item.id}>
-                            <td className="text-center">{index + 1}</td>
-                            <td className="text-center">{item.nama}</td>
-                            <td className="text-center">{item.alamat}</td>
-                            <td className="text-center">{item.nowa}</td>
-                            <td
-                              className="text-center cursor-pointer"
-                              data-tooltip-id="my-tooltip"
-                              data-tooltip-place="top"
-                              data-tooltip-html={formatPaketDetail(
-                                item.paketDetail
-                              )}
-                            >
-                              {item.paket}
-                              <Tooltip id="my-tooltip" />
-                            </td>
-                            <td className="text-center">
-                              <div className="flex justify-center items-center p-1 bg-green-300 rounded-sm text-black">
-                                {item.status}
-                              </div>
-                            </td>
-                            <td className="flex justify-center items-center">
-                              <div
-                                className="cursor-pointer flex justify-center items-center p-1 bg-red-500 rounded-sm text-white col-md-6"
-                                onClick={() => handleDelete(item.id)}
-                              >
-                                <IoTrashBin size={22} />
-                              </div>
-                            </td>
-                          </tr>
-                        );
-                      })
-                    ) : (
+                <div className="table-responsive">
+                  <table
+                    className="table table-striped table-bordered"
+                    id="example"
+                  >
+                    <thead>
                       <tr>
-                        <td colSpan="7" className="text-center py-4">
-                          Tidak ada data untuk ditampilkan
-                        </td>
+                        <th className="text-center">No</th>
+                        <th className="text-center">Nama</th>
+                        <th className="text-center">alamat</th>
+                        <th className="text-center">No WhatsApp</th>
+                        <th className="text-center">Paket</th>
+                        <th className="text-center">Status</th>
+                        <th className="text-center">Action</th>
                       </tr>
-                    )}
-                  </tbody>
-                </table>
+                    </thead>
+
+                    <tbody>
+                      {data.length > 0 ? (
+                        data.map((item, index) => {
+                          return (
+                            <tr key={item.id}>
+                              <td className="text-center">{index + 1}</td>
+                              <td className="text-center">{item.nama}</td>
+                              <td className="text-center">{item.alamat}</td>
+                              <td className="text-center">{item.nowa}</td>
+                              <td
+                                className="text-center cursor-pointer"
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-place="top"
+                                data-tooltip-html={formatPaketDetail(
+                                  item.paketDetail
+                                )}
+                              >
+                                {item.paket}
+                                <Tooltip id="my-tooltip" />
+                              </td>
+                              <td className="text-center">
+                                <div className="flex justify-center items-center p-1 bg-green-300 rounded-sm text-black">
+                                  {item.status}
+                                </div>
+                              </td>
+                              <td className="flex justify-center items-center">
+                                <div
+                                  className="cursor-pointer flex justify-center items-center p-1 bg-red-500 rounded-sm text-white col-md-6"
+                                  onClick={() => handleDelete(item.id)}
+                                >
+                                  <IoTrashBin size={22} />
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })
+                      ) : (
+                        <tr>
+                          <td colSpan="7" className="text-center py-4">
+                            Tidak ada data untuk ditampilkan
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
