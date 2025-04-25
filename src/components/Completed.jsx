@@ -75,9 +75,10 @@ const Completed = () => {
         text: "Data klien berhasil dihapus.",
         icon: "success",
         confirmButtonText: "OK",
-      }).then(() => {
-        // Perbarui state lokal dengan menghapus data yang dihapus
-        setData((prevData) => prevData.filter((item) => item.id !== clientId));
+      }).then((result) => {
+        if (result.isConfirmed){
+          window.location.href = '/selesai'
+        }
       });
     } catch (error) {
       console.error("Error deleting client:", error.message);

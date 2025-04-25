@@ -170,9 +170,11 @@ const Clients = () => {
         text: "Data klien berhasil dihapus.",
         icon: "success",
         confirmButtonText: "OK",
-      }).then(() => {
-        // Perbarui state lokal dengan menghapus data yang dihapus
-        setData((prevData) => prevData.filter((item) => item.id !== clientId));
+      }).then((result) => {
+        if (result.isConfirmed){
+          // Perbarui state lokal dengan menghapus data yang dihapus
+          window.location.href='/clients'
+        }
       });
     } catch (error) {
       console.error("Error deleting client:", error.message);
@@ -221,12 +223,13 @@ const Clients = () => {
       // Tampilkan notifikasi sukses
       Swal.fire({
         title: "Berhasil!",
-        text: "Data klien berhasil dipindahkan ke selesai.",
+        text: "Proses instalasi sudah selesai",
         icon: "success",
         confirmButtonText: "OK",
-      }).then(() => {
-        // Perbarui state lokal
-        setData((prevData) => prevData.filter((item) => item.id !== clientId));
+      }).then((result) => {
+        if(result.isConfirmed) {
+          window.location.href = '/selesai'
+        }
       });
     } catch (error) {
       console.error("Error completing client:", error.message);
